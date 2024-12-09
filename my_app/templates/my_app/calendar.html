@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STC UNIBOOK - Availability Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f5;
+            color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #4c4c8e;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .nav-icons i:hover {
+            color: #d3d3d3;
+        }
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .day {
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .day.not-available::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .day.fully-available::after {
+            background: green;
+        }
+        .day.partially-available::after {
+            background: pink;
+        }
+        .day.available::after {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>STC UNIBOOK</h1>
+        <div class="nav-icons">
+            <i class="fa fa-home" title="Home"></i>
+            <i class="fa fa-calendar" title="Calendar"></i>
+            <i class="fa fa-bell" title="Notifications"></i>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <h2>Availability Calendar</h2>
+        <div class="calendar">
+            <div class="day not-available">1</div>
+            <div class="day available">2</div>
+            <div class="day partially-available">3</div>
+            <div class="day fully-available">4</div>
+            <div class="day available">5</div>
+            <div class="day not-available">6</div>
+            <div class="day available">7</div>
+            <div class="day fully-available">8</div>
+            <div class="day partially-available">9</div>
+            <div class="day available">10</div>
+            <div class="day not-available">11</div>
+            <div class="day fully-available">12</div>
+            <div class="day available">13</div>
+            <div class="day partially-available">14</div>
+            <div class="day available">15</div>
+            <div class="day not-available">16</div>
+            <div class="day available">17</div>
+            <div class="day fully-available">18</div>
+            <div class="day partially-available">19</div>
+            <div class="day available">20</div>
+            <div class="day not-available">21</div>
+            <div class="day fully-available">22</div>
+            <div class="day partially-available">23</div>
+            <div class="day available">24</div>
+            <div class="day not-available">25</div>
+            <div class="day available">26</div>
+            <div class="day fully-available">27</div>
+            <div class="day partially-available">28</div>
+            <div class="day available">29</div>
+            <div class="day not-available">30</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Halls</title>
+</head>
+<body>
+    <h1>Available Halls</h1>
+    {% if available_halls %}
+        {% for hall in available_halls %}
+            <div>
+                <h2>{{ hall.name }}</h2>
+                <p>Seats: {{ hall.seats }}</p>
+                <img src="{{ hall.image.url }}" alt="{{ hall.name }}" width="200">
+                <form method="POST" action="{% url 'book_hall' my_app_hall.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="department_name" value="{{ department_name }}">
+                    <input type="hidden" name="event_name" value="{{ event_name }}">
+                    <input type="hidden" name="event_date" value="{{ event_date }}">
+                    <input type="hidden" name="start_time" value="{{ start_time }}">
+                    <input type="hidden" name="end_time" value="{{ end_time }}">
+                    <button type="submit">Book Now</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No halls available for the specified criteria.</p>
+    {% endif %}
+</body>
+</html>
